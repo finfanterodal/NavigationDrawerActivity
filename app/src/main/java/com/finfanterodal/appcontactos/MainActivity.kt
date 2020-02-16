@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // Creamos la ventada para lanzar el activity_main.xml
+        // Creamos la ventada para lanzar el activity_main.xml, carga otros ficheros xml y el navigation view que es el menu lateral.
         setContentView(R.layout.activity_main)
         //Crear toolbar
         val toolbar: Toolbar = findViewById(R.id.toolbar)
@@ -32,7 +32,8 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
-        //Cargamos distintos layouts que aparecerán al inicio
+        //Cargamos distintos layouts que aparecerán al inicio, gestiona todo el menu lateral,
+        // conectar el conetenido con el navigation view y hacer que aparezaca o desaparezca.
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
         //gestiona la navegación de la  aplicacion dentro del navhost
@@ -52,7 +53,7 @@ class MainActivity : AppCompatActivity() {
 
     //los fragmentos proporcionan su propia devolución de llamada onCreateOptionsMenu()
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; Añade items a la actionBar si se acciona.
+        // Cargamos al menu, toolbar un xml con las opciones
         menuInflater.inflate(R.menu.main, menu)
         return true
     }
